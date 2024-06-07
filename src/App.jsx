@@ -1,7 +1,11 @@
-import NotFoundPage from './components/NotFoundPage';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import AuthPage from './pages/AuthPage';
 import LandingPage from './pages/LandingPage';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import NotFoundPage from './components/NotFoundPage';
+import SignUp from './components/Auth/SignUp';
+import SignIn from './components/Auth/SignIn';
+import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -15,11 +19,28 @@ function App() {
       path: '/auth',
       element: <AuthPage/>,
       errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/signup',
+      element: <SignUp/>,
+      errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/signin',
+      element: <SignIn/>,
+      errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/home',
+      element: <HomePage/>,
+      errorElement: <NotFoundPage/>
     }
   ]);
   return (
     <>
-      <RouterProvider router={ router }/>
+      <AuthProvider>
+        <RouterProvider router={ router }/>
+      </AuthProvider>
     </>
   )
 }

@@ -39,6 +39,7 @@ function Landing() {
                     <Link to='/auth' className='duration-300 ease-in-out hover:bg-fuchsia-600 font-medium w-full text-2xl p-4 bg-transparent border border-fuchsia-600 rounded-2xl'> Get Started </Link>
                 </button>
             </div >
+            <footer className='mt-24 font-light text-xs'>© 2024 GJG & OGC</footer>
         </div>
     )
 }

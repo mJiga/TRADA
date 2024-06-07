@@ -1,9 +1,12 @@
-import Auth from "../components/Auth"
+import SignUp from "../components/Auth/SignUp"
+import SignIn from "../components/Auth/SignIn"
+
 
 function AuthPage() {
   return (
     <>
-        <Auth/>
+      <SignUp/>
+      <SignIn/>
     </>
   )
 }
