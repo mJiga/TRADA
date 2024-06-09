@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
+import { GoogleLogo } from '../../assets/icons/GoogleLogo.jsx';
+import { HoverBorderGradient } from '../ui/hover-border-gradient';
 
 function SignIn() {
   const [email, setEmail] = useState('');
@@ -52,52 +54,62 @@ function SignIn() {
   };
 
   return (
-    <div className="bg-black min-h-screen font-Poppins text-white flex flex-col flex-auto items-center shadow-lg text-center bg-cover bg-center">
-        <header className='font-bold text-2xl p-6 '>
-            <Link to='/'>TRADA</Link>
+    <div className="flex items-center justify-center min-h-screen bg-black p-4 text-white">
+      <div className="relative flex flex-col space-y-6 bg-zinc-950 shadow-2xl rounded-2xl p-6 w-full max-w-md">
+        <header className="text-center">
+          <Link to="/" className="text-lg font-bold">TRADA</Link>
         </header>
 
-        {error && <h1>{error}</h1>}
-        <h1>Sign in</h1>
+        {error && <span className="mb-3 flex flex-col items-center text-red-500 text-xl">{error}</span>}
 
-          <button
-              onClick={handleGoogleSubmit}
-              disabled={loading}
-            >
-              Continue with Google
-          </button>
+        <div className="flex flex-col items-center">
+          <span className="text-4xl font-light mb-8">Sign in</span>
+        </div>
 
-          <form onSubmit={handleSubmit}>
-          <input
-            placeholder='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className='text-black'
-            required
-          />
-          <input
-            placeholder='Password'
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className='text-black'
-            required
-          />
-
-          <span>
-            Need an account?
-          </span>
-          <Link to='/signup'>Create account</Link>
-
-          <button
-            type='submit'
+        <button
+            type="submit"
+            onClick={handleGoogleSubmit}
             disabled={loading}
+            className="flex items-center justify-center w-full border border-transparent font-bold text-white bg-zinc-900 p-2 rounded-lg mb-6  hover:text-white hover:border hover:border-gray-300"
           >
-            Sign in
+            <GoogleLogo className='h-5 w-5 mr-2'/> Continue with Google
           </button>
-        </form>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
+            <input
+              placeholder='Email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className='mb-2 text-md w-full p-2 border border-black  rounded-md bg-zinc-900 text-white'
+              required
+            />
+            <input
+              placeholder='Password'
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className='mb-2 text-md w-full p-2 border border-black rounded-md bg-zinc-900 text-white'
+              required
+            />
+
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as= 'button'
+              disabled={loading}
+              className="flex items-center space-x-2 px-10 py-1.5 rounded-full text-lg"
+              duration={0.5}
+            >
+              <span>Sign up</span>
+            </HoverBorderGradient>
+            
+            <div className="text-center text-white-400">
+              Need an account?
+              <Link to="/signup" className="font-bold text-fuchsia-500"> Let's create one for you</Link>
+            </div>
+          </form>
+        </div>
     </div>
-  )
+  );
 }
 
 export default SignIn;
