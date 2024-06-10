@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { GoogleLogo } from '../../assets/icons/GoogleLogo.jsx';
+import { Close } from '../../assets/icons/Close.jsx';
 import { HoverBorderGradient } from '../ui/hover-border-gradient';
 
 function SignIn() {
@@ -53,10 +54,13 @@ function SignIn() {
     setLoading(false);
   };
 
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-black p-4 text-white">
       <div className="relative flex flex-col space-y-6 bg-zinc-950 shadow-2xl rounded-2xl p-6 w-full max-w-md">
-        <header className="text-center">
+        <Link to='/auth'><Close color={hovered ? 'fuchsia' : '#e8eaed'} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}/></Link>
+        <header className="text-center hover:text-zinc-400 transition duration-300 ease-in-out">
           <Link to="/" className="text-lg font-bold">TRADA</Link>
         </header>
 
@@ -70,7 +74,7 @@ function SignIn() {
             type="submit"
             onClick={handleGoogleSubmit}
             disabled={loading}
-            className="flex items-center justify-center w-full border border-transparent font-bold text-white bg-zinc-900 p-2 rounded-lg mb-6  hover:text-white hover:border hover:border-gray-300"
+            className="flex items-center justify-center w-full border border-transparent font-bold text-white bg-zinc-900 p-2 rounded-lg mb-6  hover:text-white hover:border hover:border-gray-300 hover:bg-zinc-950 duration-300 ease-in-out"
           >
             <GoogleLogo className='h-5 w-5 mr-2'/> Continue with Google
           </button>
@@ -104,7 +108,7 @@ function SignIn() {
             
             <div className="text-center text-white-400">
               Need an account?
-              <Link to="/signup" className="font-bold text-fuchsia-500"> Let's create one for you</Link>
+              <Link to="/signup" className="font-bold text-fuchsia-500 hover:text-fuchsia-700 transition duration-300 ease-in-out"> Let's create one for you</Link>
             </div>
           </form>
         </div>

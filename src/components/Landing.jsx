@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import backgroundImage from '../assets/images/stock-bg3.png';
 import { TypewriterEffectSmooth } from './ui/type-writer-effect';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
 
@@ -22,7 +21,7 @@ function Landing() {
 
     return (
       <div className="bg-black min-h-screen font-Poppins text-white flex grow flex-col justify-center shadow-lg text-center">
-        <header className='hiddenx font-bold text-2xl p-6 fixed top-0 w-full'>
+        <header className='hiddenx font-bold text-2xl p-6 fixed top-0 w-full text-center hover:text-zinc-400 transition duration-300 ease-in-out'>
             <Link to='/'>TRADA</Link>
         </header>
         <div className='flex flex-col items-center justify-center flex-grow'>
