@@ -6,6 +6,10 @@ import NotFoundPage from './components/NotFoundPage';
 import SignUp from './components/Auth/SignUp';
 import SignIn from './components/Auth/SignIn';
 import HomePage from './pages/HomePage';
+import MainLayout from './pages/MainLayout';
+import TradePage from './pages/TradePage';
+import SimulatorPage from './pages/SimulatorPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
 
@@ -31,9 +35,45 @@ function App() {
       errorElement: <NotFoundPage/>
     },
     {
+      // add changing home page depending on auth status
       path: '/home',
-      element: <HomePage/>,
+      element: (
+        <MainLayout>
+          <HomePage/>
+        </MainLayout>
+      ),
       errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/simulator',
+      element: (
+        <MainLayout>
+          <SimulatorPage/>
+        </MainLayout>
+      ),
+      errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/trade',
+      element: (
+        <MainLayout>
+          <TradePage/>
+        </MainLayout>
+      ),
+      errorElement: <NotFoundPage/>
+    },
+    {
+      path: '/profile',
+      element: (
+        <MainLayout>
+          <ProfilePage/>
+        </MainLayout>
+      ),
+      errorElement: <NotFoundPage/>
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />
     }
   ]);
   return (

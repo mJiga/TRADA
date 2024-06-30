@@ -43,8 +43,8 @@ function AuthPage() {
           <div className="relative">
             <div className="h-[40rem] m-auto w-full dark:bg-black bg-black dark:bg-grid-white/[0.2] bg-grid-white/[0.2] relative flex items-center justify-center">
               <div className="absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-              <p className="text-3xl sm:text-6xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b text-white py-8">
-                Build 
+                <p className="text-3xl sm:text-6xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b text-white py-8">
+                  Build 
                 <FlipWords words={words} className="text-fuchsia-500" /> <br />
                 stock portfolios <br /> with our AI Tech
               </p>

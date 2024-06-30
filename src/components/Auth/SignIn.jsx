@@ -17,12 +17,6 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // repurpose to compare with database password
-    // if (password !== confirmPassword){
-    //   setError('Passwords do not match');
-    //   return;
-    // }
-
     setLoading(true);
     setError('');
 
